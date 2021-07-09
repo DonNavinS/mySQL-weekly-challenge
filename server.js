@@ -34,25 +34,31 @@ inquirer
     .prompt(firstQuestion)
 
     .then((response)=> {
-        if (answers.firstQ == 'View all departments') {
+        if (response.firstQ == 'View all departments') {
+            connection.query(`SELECT DISTINCT Department FROM employees`, (err, results)=> {
+                if (err) {
+                    console.log(err)
+                }
+                console.table(results)
+            })
 
-        } else if (answers.firstQ == 'View all roles') {
+        } else if (response.firstQ == 'View all roles') {
 
-        } else if (answers.firstQ == 'View all employees') {
+        } else if (response.firstQ == 'View all employees') {
 
-        } else if (answers.firstQ == 'Add a department') {
+        } else if (response.firstQ == 'Add a department') {
 
-        } else if (answers.firstQ == 'Add a role') {
+        } else if (response.firstQ == 'Add a role') {
 
-        } else if (answers.firstQ == 'Add an employee') {
+        } else if (response.firstQ == 'Add an employee') {
 
-        } else if (answers.firstQ == 'Update an employee role') {
+        } else if (response.firstQ == 'Update an employee role') {
 
         } 
     })
 
 
 // Displays employees table in console
-connection.query(`SELECT * FROM employees`, (err, results)=> {
-    console.log(results)
-})
+// connection.query(`SELECT * FROM employees`, (err, results)=> {
+//     console.log(results)
+// })
