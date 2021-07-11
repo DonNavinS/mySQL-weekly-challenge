@@ -18,9 +18,11 @@ CREATE TABLE roles (
    Department VARCHAR(30),
    departments_id INT NOT NULL,
    PRIMARY KEY (role_id),
-   FOREIGN KEY (departments_id) REFERENCES departments(ID)
+   FOREIGN KEY (departments_id) REFERENCES departments(ID) ON DELETE CASCADE
 
 );
+
+
 
 
 
