@@ -13,3 +13,5 @@ VALUES
 ("Sales Associate", 90000, "Sales"),
 ("Accountant", 100000, "Accounting"),
 ("Lawyer", 120000, "Legal");
+
+

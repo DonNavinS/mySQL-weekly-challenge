@@ -157,7 +157,7 @@ const mainMenuPrompt = function() {
         if (response.main_menu == 'Yes') {
             runApp();
         } else if (response.main_menu == 'No') {
-            console.log('Press Ctrl + C to close the application');
+            process.exit();
         } 
     }
 
@@ -167,7 +167,7 @@ const mainMenuPrompt = function() {
 
 
 
-// The following functions are the add records to the tables
+// The following functions are to add or update records to the tables
 const addDepartment = function() {
     inquirer
     .prompt(newDepartment)
@@ -293,7 +293,14 @@ inquirer
         
 
         } else if (response.firstQ == 'Update an employee role') {
-
+            connection.query(`SELECT * FROM employees`, (err, results)=> {
+                if (err) {
+                    console.log(err)
+                }
+                console.table('\n', results);
+                
+              })
+            
         updateEmployee();
             
 
