@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS employees;
 CREATE TABLE departments (
    ID INT AUTO_INCREMENT,
    Name VARCHAR(30),
-   PRIMARY KEY(ID)
+   PRIMARY KEY (ID)
 );
 
 
@@ -16,10 +16,10 @@ CREATE TABLE roles (
    Title VARCHAR(30),
    Salary decimal,
    Department VARCHAR(30),
-   departments_id INT,
-   FOREIGN KEY (departments_id)
-       REFERENCES departments(ID),
-    PRIMARY KEY (role_id)
+   departments_id INT NOT NULL,
+   PRIMARY KEY (role_id),
+   FOREIGN KEY (departments_id) REFERENCES departments(ID)
+
 );
 
 
