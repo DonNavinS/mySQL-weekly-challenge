@@ -115,16 +115,6 @@ const updateEmp = [
         message: "What is the ID of the employee whose information you would like to change?"
     },
     {
-        name: 'FirstName',
-        type: 'input',
-        message: 'What would you like to change the first name to?'
-    },
-    {
-        name: 'LastName',
-        type: 'input',
-        message: 'What would you like to change the last name to?'
-    },
-    {
         name: 'JobTitle',
         type: 'input',
         message: "What would you like to change the job title to?"
@@ -226,7 +216,7 @@ const updateEmployee = function() {
     .prompt(updateEmp)
 
     .then((response)=> {
-        const sql = `UPDATE employees SET FirstName = '${response.FirstName}', LastName = '${response.LastName}', JobTitle = '${response.JobTitle}', Manager = '${response.Manager}', Department = '${response.Department}', Salary = '${response.Salary}' WHERE EmployeeID = '${response.EmployeeID}'`
+        const sql = `UPDATE employees SET JobTitle = '${response.JobTitle}', Manager = '${response.Manager}', Department = '${response.Department}', Salary = '${response.Salary}' WHERE employee_id = '${response.EmployeeID}'`
         connection.query(sql, (err, results)=> {
             if (err) {
                 console.log(err);

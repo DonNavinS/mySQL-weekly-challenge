@@ -3,6 +3,9 @@ DROP TABLE IF EXISTS departments;
 DROP TABLE IF EXISTS employees;
 
 
+
+
+
 CREATE TABLE departments (
    ID INT AUTO_INCREMENT,
    Name VARCHAR(30),
@@ -16,9 +19,10 @@ CREATE TABLE roles (
    Title VARCHAR(30),
    Salary decimal,
    Department VARCHAR(30),
-   departments_id INT NOT NULL,
+   departments_id INT,
    PRIMARY KEY (role_id),
-   FOREIGN KEY (departments_id) REFERENCES departments(ID) ON DELETE CASCADE
+   FOREIGN KEY (departments_id)
+   REFERENCES departments(ID) ON UPDATE CASCADE 
 
 );
 
@@ -26,16 +30,15 @@ CREATE TABLE roles (
 
 
 
--- CREATE TABLE employees (
---     employee_id INTEGER AUTO_INCREMENT,
---     FirstName VARCHAR(30),
---     LastName VARCHAR(30),
---     JobTitle VARCHAR(30),
---     Department VARCHAR(30),
---     Salary decimal,
---     Manager VARCHAR(30),
+CREATE TABLE employees (
+    employee_id INTEGER AUTO_INCREMENT,
+    FirstName VARCHAR(30),
+    LastName VARCHAR(30),
+    JobTitle VARCHAR(30),
+    Department VARCHAR(30),
+    Salary decimal,
+    Manager VARCHAR(30),
 
---     PRIMARY KEY (employee_id),
-  
+    PRIMARY KEY (employee_id)
 
--- );
+);
